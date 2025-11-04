@@ -1,0 +1,46 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/11/03 17:02:16 by bfernan2          #+#    #+#              #
+#    Updated: 2025/11/03 21:02:00 by bfernan2         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+MAKEFLAGS += --silent
+
+NAME= so_long
+
+SRCS= main.c
+
+LIBFT_DIR= ./libft/
+LIBFT= $(LIBFT_DIR)/libft.a
+MINILIBX= ./minilibx-linux/libmlx.a
+
+OBJ= $(SRCS:.c=.o)
+CC= cc
+CFLAGS= -Wall -Werror -Wextra -g
+MLX= -lmlx -lXext -lX11
+
+all: $(NAME)
+
+$(NAME): $(OBJ) $(LIBFT)
+	@$(CC) $(CFLAGS) $(SRCS) $(MINILIBX) $(LIBFT) -o $(NAME) $(MLX)
+
+$(LIBFT):
+	@$(MAKE) -s -C $(LIBFT_DIR) all
+
+clean:
+	@rm -f $(OBJ)
+	@$(MAKE) -s -C $(LIBFT_DIR) clean
+
+fclean: clean
+	@rm -f $(NAME)
+	@$(MAKE) -s -C $(LIBFT_DIR) fclean
+
+re: fclean all
+
+.PHONY: all clean fclean re
