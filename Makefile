@@ -6,7 +6,7 @@
 #    By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/03 17:02:16 by bfernan2          #+#    #+#              #
-#    Updated: 2025/11/03 21:02:00 by bfernan2         ###   ########.fr        #
+#    Updated: 2025/11/07 17:38:53 by bfernan2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,12 @@ MINILIBX= ./minilibx-linux/libmlx.a
 OBJ= $(SRCS:.c=.o)
 CC= cc
 CFLAGS= -Wall -Werror -Wextra -g
-MLX= -lmlx -lXext -lX11
+MLX_FLAGS= -L./minilibx-linux -lmlx -lXext -lX11
 
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	@$(CC) $(CFLAGS) $(SRCS) $(MINILIBX) $(LIBFT) -o $(NAME) $(MLX)
+	@$(CC) $(CFLAGS) $(SRCS) $(MLX_FLAGS) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
 	@$(MAKE) -s -C $(LIBFT_DIR) all

@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:02:13 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/03 20:05:26 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/11/07 17:34:32 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@
 # define DOWN 0xff54
 # define LEFT 0xff51
 #define RIGHT 0xff53
+
 
 #endif
