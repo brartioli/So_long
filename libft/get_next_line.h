@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 17:02:13 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/11 18:59:22 by bfernan2         ###   ########.fr       */
+/*   Created: 2025/08/15 11:56:48 by bfernan2          #+#    #+#             */
+/*   Updated: 2025/08/19 14:38:24 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include "libft/libft.h"
-# include "minilibx-linux/mlx.h"
-# include <fcntl.h>
-# include <stddef.h>
-# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdint.h>
 
-# define WINDOW_WIDTH 800
-# define WINDOW_HEIGHT 600
-# define MOVE_SPEED 32
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
 
-typedef struct s_data
-{
-	void	*mlx;
-	void	*win;
-	char	**map;
-}	t_data;
+char	*get_next_line(int fd);
+int		find_nl(char *str);
+char	*ft_extract_line(char *buffer);
+char	*ft_strjoin(char *s1, char *s2);
+void	*ft_calloc(size_t nmemb, size_t size);
+size_t	ft_strlen(const char *s);
 
 #endif
