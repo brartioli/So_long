@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:02:13 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/11 18:59:22 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/11/11 19:47:20 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@
 
 typedef struct s_data
 {
-	void	*mlx;
-	void	*win;
-	char	**map;
+	void	*mlx_ptr;
+	void	*win_ptr;
 }	t_data;
 
 #endif
