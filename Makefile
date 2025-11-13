@@ -6,7 +6,7 @@
 #    By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/03 17:02:16 by bfernan2          #+#    #+#              #
-#    Updated: 2025/11/07 17:38:53 by bfernan2         ###   ########.fr        #
+#    Updated: 2025/11/13 20:47:08 by bfernan2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ MAKEFLAGS += --silent
 
 NAME= so_long
 
-SRCS= main.c
+SRCS= main.c utils.c map.c mlx_init.c
 
 LIBFT_DIR= ./libft/
 LIBFT= $(LIBFT_DIR)/libft.a

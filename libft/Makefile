@@ -6,7 +6,7 @@
 #    By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/17 13:01:12 by bfernan2          #+#    #+#              #
-#    Updated: 2025/09/18 20:07:44 by bfernan2         ###   ########.fr        #
+#    Updated: 2025/11/13 19:37:31 by bfernan2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ ft_putstr_fd.c ft_putnbr_fd.c ft_putendl_fd.c \
 ft_strtrim.c ft_strmapi.c ft_striteri.c \
 ft_split.c ft_itoa.c \
 ft_printf/ft_printf.c ft_printf/ft_putchar.c ft_printf/ft_puthex.c ft_printf/ft_putnbr.c ft_printf/ft_putptr.c \
-ft_printf/ft_putstr.c ft_printf/ft_unsigned_putnbr.c \
+ft_printf/ft_putstr.c ft_printf/ft_unsigned_putnbr.c\
+get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 
 
 BONUS_SRCS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c \

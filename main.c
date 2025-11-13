@@ -6,29 +6,50 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:02:26 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/11 20:18:52 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/11/13 20:45:52 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	callback(int key, void *mlx_ref);
-
-int	main(void)
+void	init_game(t_game *game)
 {
-	void	*mlx_ref;
-	void	*window_ref;
-
-	mlx_ref = mlx_init();
-	window_ref = mlx_new_window(mlx_ref, 400, 450, "teste");
-	mlx_hook(window_ref, 17, 0L, mlx_loop_end, mlx_ref);
-	mlx_hook(window_ref, 3, 1L << 1, callback, mlx_ref);
-	mlx_loop(mlx_ref);
+	game->mlx_ptr = NULL;
+	game->win_ptr = NULL;
+	game->map.map = NULL;
+	game->map.width = 0;
+	game->map.height = 0;
+	game->map.player_count = 0;
+	game->map.collectibles = 0;
+	game->map.exit_count = 0;
+	game->player.x = 0;
+	game->player.y = 0;
+	game->player.moves = 0;
+	game->collected = 0;
+	game->img.wall = NULL;
+	game->img.floor = NULL;
+	game->img.player = NULL;
+	game->img.collectible = NULL;
+	game->img.exit = NULL;
 }
 
-int	callback(int key, void *mlx_ref)
+int	main(int argc, char **argv)
 {
-	if (key == 65307)
-		mlx_loop_end(mlx_ref);
-	return (1);
+	t_game	game;
+	int		fd;
+	
+	init_game(&game);
+	if (!args_are_valid(argc, argv, &fd) 
+		|| !read_map(&game, fd) 
+		|| !validete_map(&game)
+		|| !init_mlx(&game)
+		|| !load_images(&game))
+	{
+		free_game(&game);
+		return (1);
+	}
+	ft_printf("\nYour game just start, enjoy it\n");
+	setup_hooks(&game);
+	render_map(&game);
+	mlx_loop(game.mlx_ptr);
 }
