@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:02:13 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/13 20:47:23 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/11/17 21:14:27 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,14 @@ typedef struct s_game
 
 int		args_are_valid(int argc, char **argv, int *fd);
 int		read_map(t_game *game, int fd);
+int		validate_map(t_game *game);
 char	*get_next_line(int fd);
 void	init_game(t_game *game);
+void	count_collectibles(t_game *game, int *count_collectibles);
+void	free_map(char **map, int height);
+void	free_game(t_game *game);
+int		validate_collectibles(t_game *game);
+int		validate_rectangle(t_game *game);
+int		add_map_line(t_game *game, char *line);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 20:17:22 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/13 20:17:58 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/11/17 21:09:41 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,36 @@
 int	read_map(t_game *game, int fd)
 {
 	char	*line;
-	int		i;
 
 	game->map.map = malloc(sizeof(char *) * 101);
 	if (!game->map.map)
-		return (ft_printf("Error\nMemory allocation failed\n"), 0);
-	i = 0;
-	line = get_next_line(fd);
-	while (line != NULL && i < 100)
 	{
-		game->map.map[i] = line;
-		i++;
+		ft_printf("Error - Memory failed\n");
+		return (0);
+	}
+	game->map.height = 0;
+	line = get_next_line(fd);
+	while (line != NULL)
+	{
+		if (!add_map_line(game, line))
+		{
+			free(line);
+			return (0);
+		}
+		free(line);
 		line = get_next_line(fd);
 	}
-	game->map.map[i] = NULL;
-	game->map.height = i;
-	if (i > 0)
-		game->map.width = ft_strlen(game->map.map[0]);
+	game->map.map[game->map.height] = NULL;
+	close (fd);
 	return (1);
 }
 
-int	validate_map()
+int	validate_map(t_game *game)
 {
-	
+	if (!validate_collectibles(game) || !validate_rectangle(game))
+	{
+		free_map(game->map.map, game->map.height);
+		return (0);
+	}
+	return (1);
 }

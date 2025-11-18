@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:02:26 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/13 20:45:52 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/11/17 20:54:23 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,13 @@ int	main(int argc, char **argv)
 	init_game(&game);
 	if (!args_are_valid(argc, argv, &fd) 
 		|| !read_map(&game, fd) 
-		|| !validete_map(&game)
-		|| !init_mlx(&game)
-		|| !load_images(&game))
+		|| !validate_map(&game))
 	{
 		free_game(&game);
 		return (1);
 	}
-	ft_printf("\nYour game just start, enjoy it\n");
-	setup_hooks(&game);
-	render_map(&game);
-	mlx_loop(game.mlx_ptr);
+	// ft_printf("\nYour game just start, enjoy it\n");
+	// setup_hooks(&game);
+	// render_map(&game);
+	// mlx_loop(game.mlx_ptr);
 }
