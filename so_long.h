@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:02:13 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/17 21:14:27 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/11/24 20:30:59 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_game
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
+	void		*buffer;
 	t_map		map;
 	t_player	player;
 	t_image		img;
@@ -69,5 +70,9 @@ void	free_game(t_game *game);
 int		validate_collectibles(t_game *game);
 int		validate_rectangle(t_game *game);
 int		add_map_line(t_game *game, char *line);
+int		init_mlx(t_game *game);
+void	initialize_window(t_game *game);
+int		load_assets(t_game *game);
+int		error_msg(char *msg);
 
 #endif

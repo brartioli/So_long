@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:02:26 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/17 20:54:23 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/11/24 19:15:32 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	init_game(t_game *game)
 	game->mlx_ptr = NULL;
 	game->win_ptr = NULL;
 	game->map.map = NULL;
+	game->buffer = NULL;
 	game->map.width = 0;
 	game->map.height = 0;
 	game->map.player_count = 0;
@@ -41,13 +42,16 @@ int	main(int argc, char **argv)
 	init_game(&game);
 	if (!args_are_valid(argc, argv, &fd) 
 		|| !read_map(&game, fd) 
-		|| !validate_map(&game))
+		|| !validate_map(&game)
+		|| !init_mlx(&game)
+		|| !load_assets(&game))
 	{
 		free_game(&game);
 		return (1);
 	}
-	// ft_printf("\nYour game just start, enjoy it\n");
+	ft_printf("\nYour game just start, enjoy it\n");
 	// setup_hooks(&game);
 	// render_map(&game);
-	// mlx_loop(game.mlx_ptr);
+	mlx_loop(game.mlx_ptr);
+	return (0);
 }
