@@ -1,0 +1,71 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/26 17:23:28 by bfernan2          #+#    #+#             */
+/*   Updated: 2025/11/26 20:57:41 by bfernan2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include	"so_long.h"
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 && (*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+}
+
+void	find_player_position(t_game *game)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < game->map.height)
+	{
+		x = 0;
+		while (game->map.map[y][x])
+		{
+			if (game->map.map[y][x] == 'P')
+			{
+				game->player.x = x;
+				game->player.y = y;
+				return ;
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
+char	**creat_map_copy(t_game *game)
+{
+	char	**copy;
+	int		i;
+
+	copy = malloc(sizeof(char *) * (game->map.height));
+	if (!copy)
+		return (NULL);
+	 i = 0;
+	 while (i < game->map.height)
+	 {
+		copy[i] = ft_strdup(game->map.map[i]);
+		if (!copy[i])
+		{
+			while (--i >= 0)
+				free(copy[i]);
+			free(copy);
+			return (NULL);
+		}
+		i++;
+	 }
+	 copy[i] = NULL;
+	 return (copy);	 
+}
