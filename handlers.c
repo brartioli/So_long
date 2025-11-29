@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 19:20:01 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/26 20:46:49 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/11/29 15:42:27 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	exit_game(t_game *game)
 	i = 0;
 	while (images[i])
 	{
-		mlx_destroy_image(game->win_ptr, images[i]);
+		if (images[i])
+			mlx_destroy_image(game->mlx_ptr, images[i]);
 		i++;
 	}
 	if (game->buffer)

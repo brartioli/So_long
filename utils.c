@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 17:38:12 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/17 21:14:01 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/11/29 16:20:51 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,19 @@ int	add_map_line(t_game *game, char *line)
 {
 	char	*newline;
 
+	if (!line)
+		return (0);
 	if (game->map.height >= 100)
 	{
 		ft_printf("Error - map too big\n");
+		free(line);
 		return (0);
 	}
 	newline = ft_strchr(line, '\n');
 	if (newline)
 		*newline = '\0';
 	game->map.map[game->map.height] = ft_strdup(line);
+	free(line);
 	if (!game->map.map[game->map.height])
 		return (ft_printf("Error - Memory allocation\n"), 0);
 	game->map.height++;

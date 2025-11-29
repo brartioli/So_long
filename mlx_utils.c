@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 18:07:25 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/26 18:14:03 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/11/29 13:35:41 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	initialize_window(t_game *game)
 	int	window_width;
 	int	window_heigth;
 
-	window_width = game->map.width * 64;
-	window_heigth = game->map.height * 64;
+	window_width = game->map.width * 32;
+	window_heigth = game->map.height * 32;
 	game->win_ptr = mlx_new_window(game->mlx_ptr, window_width, window_heigth,
 			"so_long");
 	if (!game->win_ptr)
@@ -64,7 +64,7 @@ static int	load_image(void *mlx, void **img, t_game *game, char *path)
 		error_msg = "Error - exit render";
 	*img = mlx_xpm_file_to_image(mlx, path, &width, &height);
 	if (!*img || (ft_strcmp(path, "assets/tile.xpm")
-			== 0 && (height != 128 || width != 128)))
+			== 0 && (height != 32 || width != 32)))
 	{
 		ft_printf("%s\n", error_msg);
 		free_map(game->map.map, game->map.height);

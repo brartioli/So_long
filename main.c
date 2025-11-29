@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:02:26 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/26 19:44:57 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/11/29 16:29:43 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,12 @@ void	init_game(t_game *game)
 	game->img.exit = NULL;
 }
 
-void	setup_game(t_game *game)
+static void	setup_game(t_game *game)
 {
 	find_player_position(game);
 	mlx_hook(game->win_ptr, 17, 0, exit_game, game);
 	mlx_key_hook(game->win_ptr, key_hook, game);
+	render(game);
 }
 
 int	main(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 19:45:22 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/26 20:50:40 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/11/29 13:09:42 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	get_new_position(int keycode, int *new_x, int *new_y, t_game *game)
 		(*new_y)++;
 	else if (keycode == 'a' || keycode == 65361)
 		(*new_x)--;
-	else if (keycode == 'w' || key_hook == 65362)
+	else if (keycode == 'w' || keycode == 65362)
 		(*new_y)--;
 	else if (keycode == 'd' || keycode == 65363)
 		(*new_x)++;		

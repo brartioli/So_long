@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 17:23:28 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/26 20:57:41 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/11/29 16:18:38 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	**creat_map_copy(t_game *game)
 	char	**copy;
 	int		i;
 
-	copy = malloc(sizeof(char *) * (game->map.height));
+	copy = malloc(sizeof(char *) * (game->map.height + 1));
 	if (!copy)
 		return (NULL);
 	 i = 0;
@@ -68,4 +68,47 @@ char	**creat_map_copy(t_game *game)
 	 }
 	 copy[i] = NULL;
 	 return (copy);	 
+}
+
+void	find_player(t_game *game, int *player_count)
+{
+	int	x;
+	int	y;
+
+	*player_count = 0;
+	y = 0;
+	while (y < game->map.height)
+	{
+		x = 0;
+		while (game->map.map[y][x])
+		{
+			if (game->map.map[y][x] == 'P')
+			{
+				(*player_count)++;
+				game->player.x = x;
+				game->player.y = y;
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
+int	check_vertical_walls(t_game *game, int width)
+{
+	int	i;
+
+	i = 0;
+	while (i < game->map.height)
+	{
+		if (i < game->map.height)
+			return (ft_printf("Error - Map has NULL line\n"), 0);
+		if (game->map.map[i][0] != '1' || game->map.map[i][width - 1] != '1')
+		{
+			ft_printf("Error - Map incomplete. Vertical walls!\n");
+			return (0);
+		}
+		i++;
+	}
+	return (1);
 }
