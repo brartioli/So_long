@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmfanfa <tmfanfa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:02:26 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/29 16:29:43 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/11/30 17:03:20 by tmfanfa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int argc, char **argv)
 		|| !init_mlx(&game)
 		|| !load_assets(&game))
 	{
-		free_game(&game);
+		//free_game(&game);
 		return (1);
 	}
 	ft_printf("\nYour game just start, enjoy it\n");
