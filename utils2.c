@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmfanfa <tmfanfa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 17:23:28 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/29 16:18:38 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/11/30 17:28:22 by tmfanfa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	**creat_map_copy(t_game *game)
 		i++;
 	 }
 	 copy[i] = NULL;
-	 return (copy);	 
+	 return (copy);
 }
 
 void	find_player(t_game *game, int *player_count)
@@ -101,8 +101,8 @@ int	check_vertical_walls(t_game *game, int width)
 	i = 0;
 	while (i < game->map.height)
 	{
-		if (i < game->map.height)
-			return (ft_printf("Error - Map has NULL line\n"), 0);
+		/*if (i < game->map.height)
+			return (ft_printf("Error - Map has NULL line\n"), 0);*/
 		if (game->map.map[i][0] != '1' || game->map.map[i][width - 1] != '1')
 		{
 			ft_printf("Error - Map incomplete. Vertical walls!\n");
