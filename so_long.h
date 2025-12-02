@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:02:13 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/12/02 17:59:28 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/12/02 20:20:40 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,10 @@ typedef struct s_game
 
 //map functions
 int		read_map(t_game *game, int fd);
+int		allocate_map(t_game *game);
 int		validate_map(t_game *game);
 char	*get_next_line(int fd);
+int		load_map_line(t_game *game, int fd);
 //game functions
 void	init_game(t_game *game);
 void	find_player_position(t_game *game);
@@ -104,6 +106,9 @@ void	update_player_tile_and_sync(t_game *game);
 //handlers_functions
 void	handle_collectible(t_game *game, int x, int y);
 int		handle_exit(t_game *game);
+int		handle_tile(t_game *game, int new_x, int new_y);
+//movement
+void	update_player_position(t_game *game, int new_x, int new_y);
 //flood_fill
 void	flood_fill(char **map, int x, int y, int height);
 int		is_valid_position(char **map, int x, int y, int heigth);
