@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmfanfa <tmfanfa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 20:17:22 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/30 17:20:27 by tmfanfa          ###   ########.fr       */
+/*   Updated: 2025/12/02 17:42:00 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	read_map(t_game *game, int fd)
 			free(line);
 			return (0);
 		}
-		//free(line);
+		free(line);
 		line = get_next_line(fd);
 	}
 	game->map.map[game->map.height] = NULL;

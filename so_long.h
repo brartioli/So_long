@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:02:13 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/29 15:19:44 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/12/02 17:59:28 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	render_tile(t_game *game, int x, int y, char tile_type);
 void	render_tile_at_position(t_game *game, char **map_copy, int x, int y);
 void	update_player_tile_and_sync(t_game *game);
 //handlers_functions
-void	handle_collectible(t_game *game);
+void	handle_collectible(t_game *game, int x, int y);
 int		handle_exit(t_game *game);
 //flood_fill
 void	flood_fill(char **map, int x, int y, int height);

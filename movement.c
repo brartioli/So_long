@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 19:45:22 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/29 13:09:42 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/12/02 18:01:05 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	key_hook(int keycode, t_game *game)
 		return (0);
 	next_tile = game->map.map[new_y][new_x];
 	if (next_tile == 'C')
-		handle_collectible(game);
+		handle_collectible(game, new_x, new_y);
 	else if (next_tile == 'E')
 	{
 		if (!handle_exit(game))

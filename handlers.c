@@ -6,17 +6,28 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 19:20:01 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/29 15:42:27 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/12/02 18:50:39 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"so_long.h"
 
+static void	destroy_images(t_game *game);
+static void	free_and_close(t_game *game);
+
 int	exit_game(t_game *game)
+{
+	destroy_images(game);
+	free_and_close(game);
+	exit (0);
+	return (0);
+}
+
+static void	destroy_images(t_game *game)
 {
 	void	*images[6];
 	int		i;
-	
+
 	images[0] = game->img.wall;
 	images[1] = game->img.floor;
 	images[2] = game->img.player;
@@ -26,34 +37,33 @@ int	exit_game(t_game *game)
 	i = 0;
 	while (images[i])
 	{
-		if (images[i])
-			mlx_destroy_image(game->mlx_ptr, images[i]);
+		mlx_destroy_image(game->mlx_ptr, images[i]);
 		i++;
 	}
-	if (game->buffer)
-		mlx_destroy_image(game->mlx_ptr, game->buffer);
+}
+
+static void	free_and_close(t_game *game)
+{
 	if (game->win_ptr)
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	if (game->mlx_ptr)
 	{
 		mlx_destroy_display(game->mlx_ptr);
-		free (game->mlx_ptr);
+		free(game->mlx_ptr);
 	}
 	if (game->map.map)
 		free_map(game->map.map, game->map.height);
-	exit (0);
-	return (0);
 }
 
-void	handle_collectible(t_game *game)
+void	handle_collectible(t_game *game, int x, int y)
 {
 	game->collected++;
-	game->map.map[game->player.y][game->player.x] = '0';
+	game->map.map[y][x] = '0';
 	if (game->collected < game->map.collectibles)
-		ft_printf("\nYou've found a treasure! Only %d to go!\n\n", 
+		ft_printf("\nYou've found a treasure! Only %d to go!\n\n",
 			game->map.collectibles - game->collected);
 	else
-			ft_printf("\nYou collected all itens.\n\n");
+		ft_printf("\nYou collected all itens.\n\n");
 }
 
 int	handle_exit(t_game *game)

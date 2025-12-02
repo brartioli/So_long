@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:01:01 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/29 12:13:57 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/12/02 18:26:21 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	flood_fill(char **map, int x, int y, int height)
 {
 	const int	dx[] = {1, -1, 0, 0};
 	const int	dy[] = {0, 0, 1, -1};
-	int	i;
-	
+	int			i;
+
 	if (!is_valid_position(map, x, y, height))
 		return ;
 	map[y][x] = 'F';
