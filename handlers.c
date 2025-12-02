@@ -6,7 +6,7 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 19:20:01 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/12/02 18:50:39 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/12/02 19:15:41 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ static void	destroy_images(t_game *game)
 
 static void	free_and_close(t_game *game)
 {
+	if (game->buffer)
+		mlx_destroy_image(game->mlx_ptr, game->buffer);
 	if (game->win_ptr)
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	if (game->mlx_ptr)
