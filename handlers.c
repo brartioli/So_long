@@ -6,11 +6,11 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 19:20:01 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/12/02 19:15:41 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/12/04 17:17:56 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"so_long.h"
+#include "so_long.h"
 
 static void	destroy_images(t_game *game);
 static void	free_and_close(t_game *game);

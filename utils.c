@@ -6,11 +6,11 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 17:38:12 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/12/02 17:42:58 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/12/04 17:23:17 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"so_long.h"
+#include "so_long.h"
 
 int	args_are_valid(int argc, char **argv, int *fd)
 {

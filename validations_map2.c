@@ -6,11 +6,11 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 14:45:40 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/29 16:02:53 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/12/04 17:32:38 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"so_long.h"
+#include "so_long.h"
 
 int	validate_exit(t_game *game)
 {

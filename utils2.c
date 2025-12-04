@@ -6,11 +6,11 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 17:23:28 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/12/02 16:59:55 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/12/04 17:30:38 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"so_long.h"
+#include "so_long.h"
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
@@ -53,9 +53,9 @@ char	**creat_map_copy(t_game *game)
 	copy = malloc(sizeof(char *) * (game->map.height + 1));
 	if (!copy)
 		return (NULL);
-	 i = 0;
-	 while (i < game->map.height)
-	 {
+	i = 0;
+	while (i < game->map.height)
+	{
 		copy[i] = ft_strdup(game->map.map[i]);
 		if (!copy[i])
 		{
@@ -65,9 +65,9 @@ char	**creat_map_copy(t_game *game)
 			return (NULL);
 		}
 		i++;
-	 }
-	 copy[i] = NULL;
-	 return (copy);
+	}
+	copy[i] = NULL;
+	return (copy);
 }
 
 void	find_player(t_game *game, int *player_count)

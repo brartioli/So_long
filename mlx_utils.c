@@ -6,11 +6,11 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 18:07:25 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/12/02 17:29:28 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/12/04 17:18:53 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"so_long.h"
+#include "so_long.h"
 
 void	initialize_window(t_game *game)
 {

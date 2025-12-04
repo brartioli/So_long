@@ -6,11 +6,11 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 20:17:22 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/12/02 20:00:14 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/12/04 17:18:37 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"so_long.h"
+#include "so_long.h"
 
 int	read_map(t_game *game, int fd)
 {

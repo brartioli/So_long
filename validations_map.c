@@ -6,11 +6,11 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:25:37 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/11/29 15:11:59 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/12/04 17:43:51 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"so_long.h"
+#include "so_long.h"
 
 int	validate_walls(t_game *game)
 {
@@ -65,12 +65,12 @@ int	validate_player(t_game *game)
 	find_player(game, &player_count);
 	if (player_count < 1)
 	{
-		ft_printf("Error - No player");
+		ft_printf("Error - No player\n");
 		return (0);
 	}
 	else if (player_count > 1)
 	{
-		ft_printf("Error - More than 1 player in game");
+		ft_printf("Error - More than 1 player in game\n");
 		return (0);
 	}
 	return (1);

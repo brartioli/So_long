@@ -6,11 +6,11 @@
 /*   By: bfernan2 <bfernan2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 19:45:22 by bfernan2          #+#    #+#             */
-/*   Updated: 2025/12/02 20:19:00 by bfernan2         ###   ########.fr       */
+/*   Updated: 2025/12/04 17:19:04 by bfernan2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"so_long.h"
+#include "so_long.h"
 
 int	key_hook(int keycode, t_game *game)
 {
